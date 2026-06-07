@@ -71,21 +71,6 @@ python main.py
 
 ---
 
-## Structure du projet
-
-```
-.
-├── main.py                 # Point d’entrée unique de l’application
-├── requirements.txt
-├── README.md
-├── interface/              # Modules PyQt5 pour chaque problème
-├── models/                 # Modèles mathématiques (gurobipy)
-├── data/                   # Fichiers CSV d’exemple
-└── utils/                  # Fonctions partagées (lecture CSV, logs)
-```
-
----
-
 ## Remarque
 
 - Tous les problèmes utilisent **Gurobi** comme solveur.  
