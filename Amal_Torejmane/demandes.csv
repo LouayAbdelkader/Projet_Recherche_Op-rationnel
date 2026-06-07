@@ -1,0 +1,7 @@
+ID_Zone,ID_Produit,Quantite,Temps_Max_h,Penalite_Unit_Manque
+Zone_A,Vaccins,120,6,20000
+Zone_A,Eau,300,24,800
+Zone_B,Insuline,80,8,25000
+Zone_B,Riz,400,48,500
+Zone_C,Lait,150,10,6000
+Zone_C,Vaccins,100,6,20000

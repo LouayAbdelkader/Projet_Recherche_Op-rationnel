@@ -1,0 +1,1 @@
+Pour lancer l'interface de notre Application, il suffit de lancer le fichier main.py De dossier Parent (Celui la) 'Vous pouvez madame choisir le model qui vous voulez l'éxécuter'

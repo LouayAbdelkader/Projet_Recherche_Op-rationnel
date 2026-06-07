@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>950</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Optimisation Stations Recharge Électrique</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabs">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      
+      <!-- DATA TAB (UPDATED with new color palette) -->
+      <widget class="QWidget" name="tab_donnees">
+       <attribute name="title">
+        <string>DONNÉES</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QFrame" name="left_panel_data">
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="styleSheet">
+           <string>
+           QFrame {
+               background-color: #1e1e24;
+               border: 1px solid #2a2a35;
+               border-radius: 12px;
+           }
+           </string>
+          </property>
+          <layout class="QVBoxLayout" name="vbox_left">
+           <item>
+            <widget class="QLabel" name="lbl_title_data">
+             <property name="text">
+              <string>CONFIGURATION DES DONNÉES</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-weight: 700; font-size: 14px; color: #5c7cfa; padding: 10px; letter-spacing: 1px;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gb_zones">
+             <property name="title">
+              <string>TAILLE DU PROBLÈME</string>
+             </property>
+             <property name="styleSheet">
+              <string>
+              QGroupBox {
+                  border: 1px solid #2a2a35;
+                  border-radius: 8px;
+                  margin-top: 1.5em;
+                  padding-top: 10px;
+                  font-weight: bold;
+                  color: #5c7cfa;
+              }
+              QGroupBox::title {
+                  subcontrol-origin: margin;
+                  left: 10px;
+                  padding: 0 5px;
+                  color: #5c7cfa;
+              }
+              </string>
+             </property>
+             <layout class="QFormLayout" name="l_zones">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lbl_num_zones">
+                <property name="text">
+                 <string>Nombre de zones (n):</string>
+                </property>
+                <property name="styleSheet">
+                 <string>color: #ffffff;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="spin_num_zones">
+                <property name="value">
+                 <number>8</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QSpinBox {
+                     background-color: #23232a;
+                     border: 1px solid #2a2a35;
+                     border-radius: 6px;
+                     color: white;
+                     padding: 8px;
+                     font-weight: bold;
+                 }
+                 QSpinBox:focus {
+                     border: 1px solid #5c7cfa;
+                     background-color: #2a2a32;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gb_actions">
+             <property name="title">
+              <string>ACTIONS</string>
+             </property>
+             <property name="styleSheet">
+              <string>
+              QGroupBox {
+                  border: 1px solid #2a2a35;
+                  border-radius: 8px;
+                  margin-top: 1.5em;
+                  padding-top: 10px;
+                  font-weight: bold;
+                  color: #5c7cfa;
+              }
+              QGroupBox::title {
+                  subcontrol-origin: margin;
+                  left: 10px;
+                  padding: 0 5px;
+                  color: #5c7cfa;
+              }
+              </string>
+             </property>
+             <layout class="QVBoxLayout" name="l_actions">
+              <item>
+               <widget class="QPushButton" name="btn_import_csv">
+                <property name="text">
+                 <string>Importer Matrice CSV</string>
+                </property>
+                <property name="minimumHeight">
+                 <number>40</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QPushButton {
+                     background-color: #2a2a35;
+                     color: white;
+                     border: 1px solid #2a2a35;
+                     padding: 10px 15px;
+                     border-radius: 6px;
+                     font-weight: 600;
+                 }
+                 QPushButton:hover {
+                     background-color: #32323e;
+                     border-color: #878a99;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_generate_data">
+                <property name="text">
+                 <string>Générer Matrice Exemple</string>
+                </property>
+                <property name="minimumHeight">
+                 <number>40</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QPushButton {
+                     background-color: #2a2a35;
+                     color: white;
+                     border: 1px solid #2a2a35;
+                     padding: 10px 15px;
+                     border-radius: 6px;
+                     font-weight: 600;
+                 }
+                 QPushButton:hover {
+                     background-color: #32323e;
+                     border-color: #878a99;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_data">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="right_panel_data">
+          <item>
+           <widget class="QLabel" name="lbl_matrix_title">
+            <property name="text">
+             <string>MATRICE DES DISTANCES (n x n)</string>
+            </property>
+            <property name="styleSheet">
+             <string>font-weight: 700; font-size: 14px; color: #5c7cfa; padding: 10px 0; letter-spacing: 1px;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="table_distances">
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="showGrid">
+             <bool>true</bool>
+            </property>
+            <property name="gridStyle">
+             <enum>Qt::SolidLine</enum>
+            </property>
+            <property name="styleSheet">
+             <string>
+             QTableWidget {
+                 background-color: #1e1e24;
+                 gridline-color: #2a2a35;
+                 border: 1px solid #2a2a35;
+                 border-radius: 8px;
+                 outline: none;
+                 color: #ffffff;
+             }
+             QTableWidget::item {
+                 padding: 5px;
+                 color: #ffffff;
+             }
+             QTableWidget::item:selected {
+                 background-color: rgba(92, 124, 250, 0.2);
+             }
+             QHeaderView::section {
+                 background-color: #23232a;
+                 color: #878a99;
+                 padding: 8px;
+                 border: none;
+                 font-weight: bold;
+                 text-transform: uppercase;
+                 font-size: 11px;
+             }
+             </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      
+      <!-- OPTIMIZATION TAB (UPDATED with new color palette) -->
+      <widget class="QWidget" name="tab_optimization">
+       <attribute name="title">
+        <string>OPTIMISATION</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="main_layout_opt">
+        
+        <!-- LEFT SIDEBAR - Parameters (Narrower) -->
+        <item>
+         <widget class="QFrame" name="sidebar">
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="styleSheet">
+           <string>
+           QFrame {
+               background-color: #1e1e24;
+               border: 1px solid #352a2aff;
+               border-radius: 12px;
+           }
+           </string>
+          </property>
+          <layout class="QVBoxLayout" name="sidebar_layout">
+           <item>
+            <widget class="QLabel" name="lbl_settings">
+             <property name="text">
+              <string>PARAMÈTRES DU MODÈLE</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-weight: 700; font-size: 14px; color: #5c7cfa; padding: 10px; letter-spacing: 1px;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gb_main">
+             <property name="title">
+              <string>NOMBRE DE STATIONS</string>
+             </property>
+             <property name="styleSheet">
+              <string>
+              QGroupBox {
+                  border: 1px solid #2a2a35;
+                  border-radius: 8px;
+                  margin-top: 1.5em;
+                  padding-top: 10px;
+                  font-weight: bold;
+                  color: #5c7cfa;
+              }
+              QGroupBox::title {
+                  subcontrol-origin: margin;
+                  left: 10px;
+                  padding: 0 5px;
+                  color: #5c7cfa;
+              }
+              </string>
+             </property>
+             <layout class="QFormLayout" name="l_main">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lbl_num_stations">
+                <property name="text">
+                 <string>Nombre de stations (p):</string>
+                </property>
+                <property name="styleSheet">
+                 <string>color: #ffffff;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="spin_num_stations">
+                <property name="value">
+                 <number>3</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QSpinBox {
+                     background-color: #23232a;
+                     border: 1px solid #2a2a35;
+                     border-radius: 6px;
+                     color: white;
+                     padding: 8px;
+                     font-weight: bold;
+                 }
+                 QSpinBox:focus {
+                     border: 1px solid #5c7cfa;
+                     background-color: #2a2a32;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="gb_budget">
+            <property name="title">
+            <string>CONTRAINTE BUDGÉTAIRE</string>
+            </property>
+            <property name="styleSheet">
+            <string>
+            QGroupBox {
+                border: 1px solid #2a2a35;
+                border-radius: 8px;
+                margin-top: 1.5em;
+                padding-top: 10px;
+                font-weight: bold;
+                color: #5c7cfa;
+            }
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                left: 10px;
+                padding: 0 5px;
+                color: #5c7cfa;
+            }
+            </string>
+            </property>
+            <layout class="QFormLayout" name="l_budget">
+            <item row="0" column="0">
+                <widget class="QLabel" name="lbl_budget">
+                <property name="text">
+                <string>Budget total (€):</string>
+                </property>
+                <property name="styleSheet">
+                <string>color: #ffffff;</string>
+                </property>
+                </widget>
+            </item>
+            <item row="0" column="1">
+                <widget class="QDoubleSpinBox" name="spin_budget">
+                <property name="value">
+                <double>20000.0</double>
+                </property>
+                <property name="maximum">
+                <double>100000.0</double>
+                </property>
+                <property name="decimals">
+                <number>0</number>
+                </property>
+                <property name="singleStep">
+                <double>1000.0</double>
+                </property>
+                <property name="styleSheet">
+                <string>
+                QDoubleSpinBox {
+                    background-color: #23232a;
+                    border: 1px solid #2a2a35;
+                    border-radius: 6px;
+                    color: white;
+                    padding: 8px;
+                    font-weight: bold;
+                }
+                QDoubleSpinBox:focus {
+                    border: 1px solid #5c7cfa;
+                    background-color: #2a2a32;
+                }
+                </string>
+                </property>
+                </widget>
+            </item>
+            </layout>
+            </widget>
+            </item>
+           <item>
+            <widget class="QGroupBox" name="gb_constraints">
+             <property name="title">
+              <string>CONTRAINTES OPTIONNELLES</string>
+             </property>
+             <property name="styleSheet">
+              <string>
+              QGroupBox {
+                  border: 1px solid #2a2a35;
+                  border-radius: 8px;
+                  margin-top: 1.5em;
+                  padding-top: 10px;
+                  font-weight: bold;
+                  color: #5c7cfa;
+              }
+              QGroupBox::title {
+                  subcontrol-origin: margin;
+                  left: 10px;
+                  padding: 0 5px;
+                  color: #5c7cfa;
+              }
+              </string>
+             </property>
+             <layout class="QFormLayout" name="l_constraints">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="check_capacity">
+                <property name="text">
+                 <string>Activer la capacité</string>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QCheckBox {
+                     color: #ffffff;
+                     spacing: 8px;
+                 }
+                 QCheckBox::indicator {
+                     width: 18px;
+                     height: 18px;
+                     border: 2px solid #5c7cfa;
+                     border-radius: 4px;
+                 }
+                 QCheckBox::indicator:checked {
+                     background-color: #5c7cfa;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="spin_capacity">
+                <property name="value">
+                 <number>20</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QSpinBox {
+                     background-color: #23232a;
+                     border: 1px solid #2a2a35;
+                     border-radius: 6px;
+                     color: white;
+                     padding: 8px;
+                     font-weight: bold;
+                 }
+                 QSpinBox:focus {
+                     border: 1px solid #5c7cfa;
+                     background-color: #2a2a32;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="check_max_distance">
+                <property name="text">
+                 <string>Activer Distance Max</string>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QCheckBox {
+                     color: #ffffff;
+                     spacing: 8px;
+                 }
+                 QCheckBox::indicator {
+                     width: 18px;
+                     height: 18px;
+                     border: 2px solid #5c7cfa;
+                     border-radius: 4px;
+                 }
+                 QCheckBox::indicator:checked {
+                     background-color: #5c7cfa;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="spin_max_distance">
+                <property name="value">
+                 <double>50.0</double>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 QDoubleSpinBox {
+                     background-color: #23232a;
+                     border: 1px solid #2a2a35;
+                     border-radius: 6px;
+                     color: white;
+                     padding: 8px;
+                     font-weight: bold;
+                 }
+                 QDoubleSpinBox:focus {
+                     border: 1px solid #5c7cfa;
+                     background-color: #2a2a32;
+                 }
+                 </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_opt">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btn_run">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string>
+              QPushButton {
+                  background-color: #4d9fff;
+                  color: white;
+                  font-weight: bold;
+                  font-size: 14px;
+                  border-radius: 6px;
+                  padding: 10px;
+                  border: none;
+              }
+              QPushButton:hover {
+                  background-color: #3a8cff;
+              }
+              QPushButton:disabled {
+                  background-color: #7c8594;
+              }
+              </string>
+             </property>
+             <property name="text">
+              <string>LANCER L'OPTIMISATION</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        
+        <!-- RIGHT PANEL - Results & Visualization -->
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string>
+           QScrollArea {
+               border: none;
+               background-color: transparent;
+           }
+           QScrollBar:vertical {
+               background: transparent;
+               width: 8px;
+               margin: 0;
+           }
+           QScrollBar::handle:vertical {
+               background: #3f3f4b;
+               min-height: 20px;
+               border-radius: 4px;
+           }
+           QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+               height: 0px;
+           }
+           </string>
+          </property>
+          <widget class="QWidget" name="content_res">
+           <property name="styleSheet">
+            <string>
+            QWidget {
+                background-color: #121218;
+            }
+            </string>
+           </property>
+           <layout class="QVBoxLayout" name="res_layout">
+            
+            <!-- Header -->
+            <item>
+             <layout class="QHBoxLayout" name="head_layout">
+              <item>
+               <widget class="QLabel" name="title_dashboard">
+                <property name="text">
+                 <string>Rapport d'Optimisation du Réseau</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 24px; font-weight: 700; color: #ffffff;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_header">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbl_status">
+                <property name="text">
+                 <string>🔵 Statut: Prêt à optimiser</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 12px; color: #7c8594;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            
+            <!-- 3 KEY METRICS HORIZONTALLY LINED UP -->
+            <item>
+             <layout class="QHBoxLayout" name="kpi_horizontal_layout">
+              <item>
+               <widget class="MetricWidget" name="kpi_total_distance">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>100</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="MetricWidget" name="kpi_stations_opened">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>100</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="MetricWidget" name="kpi_budget_used">
+                <property name="minimumSize">
+                 <size>
+                  <width>220</width>
+                  <height>100</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_kpi">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            
+            <!-- GRAPH SECTION (Less wide, taller) -->
+            <item>
+             <widget class="CardFrame" name="visu_card">
+              <property name="minimumHeight">
+               <number>500</number>
+              </property>
+              <property name="styleSheet">
+               <string>
+               CardFrame {
+                   background-color: #1e1e24;
+                   border: 1px solid #2a2a35;
+                   border-radius: 12px;
+               }
+               </string>
+              </property>
+              <layout class="QVBoxLayout" name="visu_layout">
+               <item>
+                <widget class="QLabel" name="lbl_visu">
+                 <property name="text">
+                  <string>VISUALISATION GÉOGRAPHIQUE</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string>font-weight: 700; font-size: 12px; color: #878a99; padding: 10px 0; letter-spacing: 1px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="chart_placeholder" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>450</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>900</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string>
+                  QWidget {
+                      background-color: #121218;
+                      border: 1px solid #2a2a35;
+                      border-radius: 6px;
+                  }
+                  </string>
+                 </property>
+                 <layout class="QVBoxLayout" name="l_chart">
+                  <item>
+                   <widget class="QLabel" name="lbl_chart_placeholder">
+                    <property name="text">
+                     <string>Carte interactive des stations et zones...</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                    <property name="styleSheet">
+                     <string>color: #2a2a35; font-style: italic; font-size: 16px;</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            
+            <!-- TWO WIDGETS SIDE BY SIDE UNDER GRAPH -->
+            <item>
+             <layout class="QHBoxLayout" name="results_under_graph_layout">
+              
+              <!-- Left: Detailed Report -->
+              <item>
+               <widget class="CardFrame" name="assign_card">
+                <property name="minimumHeight">
+                 <number>400</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 CardFrame {
+                     background-color: #1e1e24;
+                     border: 1px solid #2a2a35;
+                     border-radius: 12px;
+                 }
+                 </string>
+                </property>
+                <layout class="QVBoxLayout" name="assign_layout">
+                 <item>
+                  <widget class="QLabel" name="lbl_assign">
+                   <property name="text">
+                    <string>RAPPORT DÉTAILLÉ DE LA SOLUTION</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string>font-weight: 700; font-size: 12px; color: #878a99; padding: 10px 0; letter-spacing: 1px; border-bottom: 1px solid #2a2a35;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="text_assignations">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumHeight">
+                    <number>350</number>
+                   </property>
+                   <property name="styleSheet">
+                    <string>
+                    QTextEdit {
+                        background-color: #0f0f13;
+                        border: 1px solid #2a2a35;
+                        border-radius: 8px;
+                        color: #ced4da;
+                        font-family: 'Consolas', monospace;
+                        font-size: 12px;
+                        padding: 10px;
+                    }
+                    </string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              
+              <!-- Right: Stations List -->
+              <item>
+               <widget class="CardFrame" name="stations_card">
+                <property name="minimumHeight">
+                 <number>400</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 CardFrame {
+                     background-color: #1e1e24;
+                     border: 1px solid #2a2a35;
+                     border-radius: 12px;
+                 }
+                 </string>
+                </property>
+                <layout class="QVBoxLayout" name="stations_layout">
+                 <item>
+                  <widget class="QLabel" name="lbl_stations_title">
+                   <property name="text">
+                    <string>STATIONS OUVERTES</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string>font-weight: 700; font-size: 12px; color: #878a99; padding: 10px 0; letter-spacing: 1px; border-bottom: 1px solid #2a2a35;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="text_stations_list">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumHeight">
+                    <number>350</number>
+                   </property>
+                   <property name="styleSheet">
+                    <string>
+                    QTextEdit {
+                        background-color: #0f0f13;
+                        border: 1px solid #2a2a35;
+                        border-radius: 8px;
+                        color: #ced4da;
+                        font-family: 'Consolas', monospace;
+                        font-size: 12px;
+                        padding: 10px;
+                    }
+                    </string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              
+             </layout>
+            </item>
+
+            <item>
+               <widget class="CardFrame" name="assign_card">
+                <property name="minimumHeight">
+                 <number>400</number>
+                </property>
+                <property name="styleSheet">
+                 <string>
+                 CardFrame {
+                     background-color: #1e1e24;
+                     border: 1px solid #2a2a35;
+                     border-radius: 12px;
+                 }
+                 </string>
+                </property>
+                <layout class="QVBoxLayout" name="assign_layout">
+                 <item>
+                  <widget class="QLabel" name="lbl_assign">
+                   <property name="text">
+                    <string>LOGS D'OPTIMISATION</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string>font-weight: 700; font-size: 12px; color: #878a99; padding: 10px 0; letter-spacing: 1px; border-bottom: 1px solid #2a2a35;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="text_logs">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumHeight">
+                    <number>350</number>
+                   </property>
+                   <property name="styleSheet">
+                    <string>
+                    QTextEdit {
+                        background-color: #0f0f13;
+                        border: 1px solid #2a2a35;
+                        border-radius: 8px;
+                        color: #ced4da;
+                        font-family: 'Consolas', monospace;
+                        font-size: 12px;
+                        padding: 10px;
+                    }
+                    </string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+            
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        
+       </layout>
+      </widget>
+      
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+</ui>

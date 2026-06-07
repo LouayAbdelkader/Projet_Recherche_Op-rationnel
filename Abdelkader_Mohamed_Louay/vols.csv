@@ -1,0 +1,9 @@
+VolID,Route,P_eco,P_bus,Duree
+101,Tunis-Paris,100,15,4.6
+102,Paris-Londres,110,20,3.4
+103,Londres-NewYork,230,38,9.8
+104,NewYork-Tunis,220,36,10.0
+105,Tunis-Rome,95,12,3.6
+106,Rome-Madrid,100,16,3.1
+107,Madrid-Berlin,120,26,3.8
+108,Berlin-Paris,115,24,3.3

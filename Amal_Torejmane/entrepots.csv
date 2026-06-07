@@ -1,0 +1,7 @@
+ID_Entrepot,ID_Produit,Stock,A_Chambre_Froide
+Depot_Central,Eau,800,0
+Depot_Central,Riz,600,0
+Depot_Central,Lait,100,0
+Depot_Pharma,Vaccins,200,1
+Depot_Pharma,Insuline,120,1
+Depot_Pharma,Eau,50,1

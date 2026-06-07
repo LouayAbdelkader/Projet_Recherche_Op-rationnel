@@ -1,0 +1,11 @@
+Origine,Destination,ID_Mode,Cout_Fixe,Cout_Var,Temps_h
+Depot_Central,Zone_A,Camion_Std,120,3,12
+Depot_Central,Zone_B,Camion_Std,180,4,20
+Depot_Central,Zone_C,Camion_Std,300,6,30
+Depot_Central,Zone_A,Avion,900,18,2
+Depot_Central,Zone_C,Avion,1200,20,3
+Depot_Pharma,Zone_A,Camion_Frigo,200,4,8
+Depot_Pharma,Zone_B,Camion_Frigo,280,5,12
+Depot_Pharma,Zone_C,Camion_Frigo,450,7,18
+Depot_Pharma,Zone_A,Avion,1000,22,2
+Depot_Pharma,Zone_C,Avion,1400,25,3
