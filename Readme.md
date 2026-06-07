@@ -16,11 +16,11 @@ Institut National des Sciences Appliquées et de Technologie
 
 | Membre | Problème traité |
 |--------|----------------|
-| Amal Torjmen | Transport / Acheminement de l’aide alimentaire |
+| Amal Torjmen | Acheminement de l’aide alimentaire |
 | Mohamed Louay Abdelkader | Affectation des avions aux vols (surclassement) |
-| Nour Besrour | Coloriage de graphe / Allocation de fréquences radio |
-| Nour Smadhi | Localisation (P-Median) / Stations de recharge électrique |
-| Baya Bouzouita | Set Covering / Planification du personnel 24h/24 |
+| Nour Besrour | Allocation de fréquences radio |
+| Nour Smadhi | Stations de recharge électrique |
+| Baya Bouzouita | Planification du personnel 24h/24 |
 
 ---
 
